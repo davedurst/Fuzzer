@@ -4,7 +4,9 @@
     Group 4
 """
 
-import argparse, sys
+import argparse
+import sys
+import discover as disc
 
 # This is the entry point for the application
 
@@ -37,6 +39,8 @@ def main():
         if args.cmd == 'discover':
             print("Running discover")
             print(args)
+	    disc.discover(args)
+
         elif args.cmd == 'test':
             print("Running test")
             print(args)
