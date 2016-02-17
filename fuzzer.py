@@ -39,8 +39,8 @@ def main():
         if args.cmd == 'discover':
             print("Running discover")
             print(args)
-	    disc.discover(args)
-
+            disc.discover(args)
+			
         elif args.cmd == 'test':
             print("Running test")
             print(args)

@@ -3,21 +3,27 @@
     SWEN-331
     Group 4
 """
+import utils.requests as requests
+from utils.requests.auth import HTTPBasicAuth
 
 def discover(args):
 	
 	""" Set up custom_auth """
 	"""
 	Psuedo: 
-	
-	if args.custom_auth != None
-		if dvwa
-			visit dvwa with proper credentials
-		if bodgeit
-			visit bodgeit with proper credentials
-		else
-			invalid auth
 	"""
+	if args.custom_auth != None:
+		if args.custom_auth.lower() == "dvwa":
+			respons = requests.get('http://127.0.0.1/dvwa/login.php', auth=HTTPBasicAuth('admin', 'password'))
+			print(respons)
+		elif args.custom_auth.lower() == "bwapp":
+			#visit bodgeit with proper credentials
+			respons = requests.get('http://127.0.0.1/bWapp/login.php', auth=HTTPBasicAuth('bee', 'bug'))
+			print(respons)
+		else:
+			#invalid auth
+			print(args.custom_auth + " is an invalid authentication input. Please choose from the following [dvwa, bwapp]")
+	
 	
 	print("*** Link Discovery ***")
 	
