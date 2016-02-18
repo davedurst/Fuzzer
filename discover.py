@@ -14,12 +14,12 @@ def discover(args):
 	"""
 	if args.custom_auth != None:
 		if args.custom_auth.lower() == "dvwa":
-			respons = requests.get('http://127.0.0.1/dvwa/login.php', auth=HTTPBasicAuth('admin', 'password'))
-			print(respons)
+			response = requests.get('http://127.0.0.1/dvwa/login.php', auth=HTTPBasicAuth('admin', 'password'))
+			print(response)
 		elif args.custom_auth.lower() == "bwapp":
 			#visit bodgeit with proper credentials
-			respons = requests.get('http://127.0.0.1/bWapp/login.php', auth=HTTPBasicAuth('bee', 'bug'))
-			print(respons)
+			response = requests.get('http://127.0.0.1/bWapp/login.php', auth=HTTPBasicAuth('bee', 'bug'))
+			print(response)
 		else:
 			#invalid auth
 			print(args.custom_auth + " is an invalid authentication input. Please choose from the following [dvwa, bwapp]")
