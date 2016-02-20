@@ -32,6 +32,21 @@ def discover(args):
 	print("*** Guessing Links ***")
 	
 	""" append common words with common urls to a base url """
+		words = []
+		with open(args.common_words, 'r') as f:
+			words.append(f.read().strip())
+		f.closed
+		for s in words:
+			if args.custom_auth.lower() == "dvwa":
+				response = requests.get('http://127.0.0.1/dvwa/' + s + '.php')
+				print(response)
+				response = requests.get('http://127.0.0.1/dvwa/' + s + '.jsp')
+				print(response)
+			elif args.custom_auth.lower() == "bwapp":
+				response = requests.get('http://127.0.0.1/bWapp/' + s + '.php')
+				print(response)
+				response = requests.get('http://127.0.0.1/bWapp/' + s + '.jsp')
+				print(response)
 	
 	print("*** Parsing URLS ***")
 	
