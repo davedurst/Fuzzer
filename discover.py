@@ -22,11 +22,11 @@ def discover(args):
             """ Login """
             session.post("http://127.0.0.1:8080/bodgeit/login.jsp", data={'username': 'test@thebodgeitstore.com', 'password': 'password'})
         elif args.custom_auth.lower() == "test":
-        	""" Login to test site (mycourses) """
-        	session.post("https://mycourses.rit.edu/", data={'username': 'dnd7249', 'password': 'thisisnotmypassword'})
-	    else:
-		    """ Invalid auth """
-		    print(args.custom_auth + " is an invalid authentication input. Available options inlude: [dvwa, bwapp]\n")
+            """ Login to test site (mycourses) """
+            session.post("https://mycourses.rit.edu/", data={'username': 'dnd7249', 'password': 'thisisnotmypassword'})
+		else:
+		""" Invalid auth """
+			print(args.custom_auth + " is an invalid authentication input. Available options inlude: [dvwa, bwapp]\n")
 		    sys.exit()
 		    
     print(session.cookies)
