@@ -6,7 +6,7 @@
 
 import sys
 import utils.requests as requests
-from Fuzzer.app import link_discover
+from app import link_discovery
 
 session = requests.Session()
 
@@ -33,7 +33,7 @@ def discover(args):
             sys.exit()
     
     print("*** Link Discovery ***")
-    discovered_links = link_discovery.crawl_base(args.url, session)
+    discovered_links = link_discovery.crawl(args.url, session)
     sys.exit()
     
     print("*** Guessing Links ***")
