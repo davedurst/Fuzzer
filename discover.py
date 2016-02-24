@@ -10,7 +10,7 @@ import utils.requests as requests
 def discover(args):
 	
     """ Global session to store history of our discovery """
-    global session;	
+    global session	
 	
     """ Set up custom_auth """
     if args.custom_auth != None:
