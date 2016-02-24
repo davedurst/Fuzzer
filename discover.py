@@ -6,6 +6,7 @@
 
 import sys
 import utils.requests as requests
+from Fuzzer.app import link_discover
 
 session = requests.Session()
 
@@ -30,14 +31,11 @@ def discover(args):
             """ Invalid auth """
             print(args.custom_auth + " is an invalid authentication input. Available options inlude: [dvwa, bwapp]\n")
             sys.exit()
-            
-        print(session.cookies)
-        sys.exit()
     
     print("*** Link Discovery ***")
-	
-    """ Basic crawler (utilize a stack) """
-	
+    discovered_links = link_discovery.crawl_base(args.url, session)
+    sys.exit()
+    
     print("*** Guessing Links ***")
 	
     """ append common words with common urls to a base url """
