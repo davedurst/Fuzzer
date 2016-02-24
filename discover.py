@@ -10,26 +10,26 @@ import utils.requests as requests
 def discover(args):
 	
     """ Global session to store history of our discovery """
-    global session	
+    global _session	
 	
     """ Set up custom_auth """
     if args.custom_auth != None:
         if args.custom_auth.lower() == "dvwa":
             """ Login and set security level to low """
-            session.post("http://127.0.0.1/dvwa/login.php", data={'Login': '1', 'username': 'admin', 'password': 'password'})
-            session.post("http://127.0.0.1/dvwa/security.php", data={'seclev_submit' : '1', 'security' : 'low'})
+            _session.post("http://127.0.0.1/dvwa/login.php", data={'Login': '1', 'username': 'admin', 'password': 'password'})
+            _session.post("http://127.0.0.1/dvwa/security.php", data={'seclev_submit' : '1', 'security' : 'low'})
         elif args.custom_auth.lower() == "bwapp":
             """ Login """
-            session.post("http://127.0.0.1:8080/bodgeit/login.jsp", data={'username': 'test@thebodgeitstore.com', 'password': 'password'})
+            _session.post("http://127.0.0.1:8080/bodgeit/login.jsp", data={'username': 'test@thebodgeitstore.com', 'password': 'password'})
         elif args.custom_auth.lower() == "test":
             """ Login to test site (mycourses) """
-            session.post("https://mycourses.rit.edu/", data={'username': 'dnd7249', 'password': 'thisisnotmypassword'})
+            _session.post("https://mycourses.rit.edu/", data={'username': 'dnd7249', 'password': 'thisisnotmypassword'})
         else:
             """ Invalid auth """
             print(args.custom_auth + " is an invalid authentication input. Available options inlude: [dvwa, bwapp]\n")
             sys.exit()
             
-        print(session.cookies)
+        print(_session.cookies)
         sys.exit()
     
     print("*** Link Discovery ***")
