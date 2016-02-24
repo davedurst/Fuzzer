@@ -30,8 +30,9 @@ def crawl(url, session):
             
             """ Make sure we dont go surfing the web (rit is for testing) """
             for url in urls:
-                if "localhost" in url or "127.0.0.1" in url or "www.rit.edu" in url:
-                    url_stack.push()
-                    print("Found: " + url)
+                if url not in discovered_links:
+                    if "localhost" in url or "127.0.0.1" in url or "www.rit.edu" in url:
+                        url_stack.push()
+                        print("Found: " + url)
     
     return discovered_links
