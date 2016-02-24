@@ -28,9 +28,10 @@ def discover(args):
             """ Invalid auth """
             print(args.custom_auth + " is an invalid authentication input. Available options inlude: [dvwa, bwapp]\n")
             sys.exit()
-		    
-    print(session.cookies)
-	sys.exit()
+            
+        print(session.cookies)
+        sys.exit()
+        
 	print("*** Link Discovery ***")
 	
 	""" Basic crawler (utilize a stack) """
