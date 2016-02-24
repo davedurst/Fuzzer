@@ -3,28 +3,34 @@
     SWEN-331
     Group 4
 """
+
+import sys
 import utils.requests as requests
-from utils.requests.auth import HTTPBasicAuth
 
 def discover(args):
 	
-	""" Set up custom_auth """
-	"""
-	Psuedo: 
-	"""
-	if args.custom_auth != None:
-		if args.custom_auth.lower() == "dvwa":
-			response = requests.get('http://127.0.0.1/dvwa/login.php', auth=HTTPBasicAuth('admin', 'password'))
-			print(response)
-		elif args.custom_auth.lower() == "bwapp":
-			#visit bodgeit with proper credentials
-			response = requests.get('http://127.0.0.1/bWapp/login.php', auth=HTTPBasicAuth('bee', 'bug'))
-			print(response)
-		else:
-			#invalid auth
-			print(args.custom_auth + " is an invalid authentication input. Please choose from the following [dvwa, bwapp]")
+    """ Global session to store history of our discovery """
+    global session;	
 	
-	
+    """ Set up custom_auth """
+    if args.custom_auth != None:
+        if args.custom_auth.lower() == "dvwa":
+            """ Login and set security level to low """
+            session.post("http://127.0.0.1/dvwa/login.php", data={'Login': '1', 'username': 'admin', 'password': 'password'})
+            session.post("http://127.0.0.1/dvwa/security.php", data={'seclev_submit' : '1', 'security' : 'low'})
+        elif args.custom_auth.lower() == "bwapp":
+            """ Login """
+            session.post("http://127.0.0.1:8080/bodgeit/login.jsp", data={'username': 'test@thebodgeitstore.com', 'password': 'password'})
+        elif args.custom_auth.lower() == "test":
+        	""" Login to test site (mycourses) """
+        	session.post("https://mycourses.rit.edu/", data={'username': 'dnd7249', 'password': 'thisisnotmypassword'})
+	    else:
+		    """ Invalid auth """
+		    print(args.custom_auth + " is an invalid authentication input. Available options inlude: [dvwa, bwapp]\n")
+		    sys.exit()
+		    
+    print(session.cookies)
+	sys.exit()
 	print("*** Link Discovery ***")
 	
 	""" Basic crawler (utilize a stack) """
