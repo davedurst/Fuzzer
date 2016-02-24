@@ -32,7 +32,7 @@ def crawl(url, session):
             for url in urls:
                 if url not in discovered_links:
                     if "localhost" in url or "127.0.0.1" in url or "www.rit.edu" in url:
-                        url_stack.push()
+                        url_stack.add(url)
                         print("Found: " + url)
     
     return discovered_links
