@@ -6,7 +6,7 @@
 
 import sys
 import utils.requests as requests
-from app import link_discovery
+from app import link_discovery, link_guessing
 
 session = requests.Session()
 
@@ -32,30 +32,13 @@ def discover(args):
             print(args.custom_auth + " is an invalid authentication input. Available options inlude: [dvwa, bwapp]\n")
             sys.exit()
     
-    print("*** Link Discovery ***")
+    print("\n*** Link Discovery ***\n")
     discovered_links = link_discovery.crawl(args.url, session)
-    sys.exit()
     
-    print("*** Guessing Links ***")
+    print("\n*** Guessing Links ***\n")
+    guessed_links = link_guessing.guess(discovered_links, session, args.common_words)
 	
-    """ append common words with common urls to a base url """
-    words = []
-    with open(args.common_words, 'r') as f:
-	    words.append(f.read().strip())
-    f.closed
-    for s in words:
-        if args.custom_auth.lower() == "dvwa":
-            response = requests.get('http://127.0.0.1/dvwa/' + s + '.php')
-            print(response)
-            response = requests.get('http://127.0.0.1/dvwa/' + s + '.jsp')
-            print(response)
-        elif args.custom_auth.lower() == "bwapp":
-            response = requests.get('http://127.0.0.1/bWapp/' + s + '.php')
-            print(response)
-            response = requests.get('http://127.0.0.1/bWapp/' + s + '.jsp')
-            print(response)
-	
-    print("*** Parsing URLS ***")
+    print("\n*** Parsing URLS ***\n")
 	
     """ split the urls """
 	
