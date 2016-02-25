@@ -13,10 +13,10 @@ def crawl(url, session):
     url_stack = set()
     url_stack.add(url)
     discovered_links = set()
+    discovered_links.add(url)
     
     while(len(url_stack) > 0):
         curr_url = url_stack.pop()
-        discovered_links.add(curr_url)
         
         if "logout" in curr_url:
             """ Dont visit a logout link """
@@ -29,10 +29,11 @@ def crawl(url, session):
             urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', request.text)
             
             """ Make sure we dont go surfing the web (rit is for testing) """
-            for url in urls:
-                if url not in discovered_links:
-                    if "localhost" in url or "127.0.0.1" in url or "www.rit.edu" in url:
-                        url_stack.add(url)
-                        print("Found: " + url)
+            for link in urls:
+                if link not in discovered_links:
+                    if "localhost" in link or "127.0.0.1" in link or "www.rit.edu" in link:
+                        url_stack.add(link)
+                        discovered_links.add(link)
+                        print("Found: " + link)
     
     return discovered_links
