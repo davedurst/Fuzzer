@@ -15,10 +15,10 @@ def guess(discovered_links, session, common_words):
     guessed_links = set()
 
     """ Read words into list """
-    words = []
-    with open(args.common_words, 'r') as f:
-	    words.append(f.read().strip())
-    f.closed
+    f = open(common_words, 'r')
+    words = f.read().split()
+
+    print(words)
     
     """ for each page that isnt a file """
     for link in discovered_links:
@@ -28,7 +28,7 @@ def guess(discovered_links, session, common_words):
             for word in words:
                 for ending in common_endings:
                     guess = link + word + ending
-                    
+
                     """ if its a page, add it to guessed links list """
                     if(valid_page(guess, session)):
                         guessed_links.add(guess)
