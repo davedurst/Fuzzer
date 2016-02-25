@@ -23,7 +23,7 @@ def discover(args):
             session.post("http://127.0.0.1/dvwa/security.php", data={'seclev_submit' : '1', 'security' : 'low'})
         elif args.custom_auth.lower() == "bwapp":
             """ Login """
-            session.post("http://127.0.0.1:8080/bodgeit/login.jsp", data={'username': 'test@thebodgeitstore.com', 'password': 'password'})
+            session.post("http://127.0.0.1:8080/bodgeit/login.jsp", data={'username': 'bwapp', 'password': 'password'})
         elif args.custom_auth.lower() == "test":
             """ Login to test site (mycourses) """
             session.post("https://mycourses.rit.edu/", data={'username': 'dnd7249', 'password': 'thisisnotmypassword'})
