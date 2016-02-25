@@ -40,7 +40,7 @@ def discover(args):
     final_urls = discovered_links + guessed_links
 	
     print("\n*** Parsing URLS ***\n")
-    parse_url.parse(final_urls, session)
+    parse_url.parse(final_urls)
 
     print("*** Discovering Form Parameters ***")
 	
