@@ -6,7 +6,7 @@
 
 import sys
 import utils.requests as requests
-from app import link_discovery, link_guessing
+from app import link_discovery, link_guessing, parse_url
 
 session = requests.Session()
 
@@ -37,10 +37,11 @@ def discover(args):
     
     print("\n*** Guessing Links ***\n")
     guessed_links = link_guessing.guess(discovered_links, session, args.common_words)
-    final_links = discovered_links + guessed_links
+    final_urls = discovered_links + guessed_links
 	
     print("\n*** Parsing URLS ***\n")
-	
+    parse_url.parse(final_urls, session)
+
     print("*** Discovering Form Parameters ***")
 	
     """ probably some api call """
