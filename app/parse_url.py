@@ -15,7 +15,7 @@ def parse(urls):
         if(len(sub_divide) > 1):
             """ get param key/value pairs """
             if '#' in sub_divide[1]:
-                parameters = sub_divide[1].split['#']
+                parameters = sub_divide[1].split('#')
                 url_parameters = parameters[0].split('&')
             else:
                 url_parameters = sub_divide[1].split('&')
