@@ -37,10 +37,9 @@ def discover(args):
     
     print("\n*** Guessing Links ***\n")
     guessed_links = link_guessing.guess(discovered_links, session, args.common_words)
+    final_links = discovered_links + guessed_links
 	
     print("\n*** Parsing URLS ***\n")
-	
-    """ split the urls """
 	
     print("*** Discovering Form Parameters ***")
 	
