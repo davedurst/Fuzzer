@@ -1,6 +1,7 @@
 """
     Fuzzer Project
-
+    SWEN-331
+    Group 4
 """
 
 import utils.requests as requests
