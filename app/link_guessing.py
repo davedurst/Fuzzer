@@ -13,7 +13,7 @@ def valid_page(url_guess, session):
 
 def guess(discovered_links, session, common_words):
    guessed_links = set()
-
+  
     """ Read words into list """
     words = []
     with open(args.common_words, 'r') as f:
