@@ -27,7 +27,8 @@ def parse(urls):
         else:
             print("No parameters found")
 
-def test_parse():
+#some tests
+def main():
     """ Try url with no query parameters """
     parse(["https://github.com/davedurst/Fuzzer/edit/master/app/parse_url.py"])
     
@@ -36,7 +37,6 @@ def test_parse():
     
     """ Try url with additional shit (fragments) """
     parse(["abc://username:password@example.com:123/path/data?key=value#fragid1"])
-    
-def main():
-    test_parse()
-    
+
+if __name__ == '__main__':
+    main()
