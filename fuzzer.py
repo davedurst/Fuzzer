@@ -6,7 +6,7 @@
 
 import argparse
 import sys
-import discover as disc
+import app.discover as disc
 
 # This is the entry point for the application
 
