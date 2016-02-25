@@ -1,5 +1,7 @@
 """
     Fuzzer Project
+    SWEN-331
+    Group 4
     
     This file is responsible for crawling all visible links
     within a webpage
