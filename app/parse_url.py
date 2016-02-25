@@ -26,3 +26,17 @@ def parse(urls):
                     print("Parameter: " + key + "; Value: " + val)
         else:
             print("No parameters found")
+
+def test_parse():
+    """ Try url with no query parameters """
+    parse(["https://github.com/davedurst/Fuzzer/edit/master/app/parse_url.py"])
+    
+    """ Try url with query parameters """
+    parse(["https://mycourses.rit.edu/d2l/lp/profile/profile_edit.d2l?ou=587073"])
+    
+    """ Try url with additional shit (fragments) """
+    parse(["abc://username:password@example.com:123/path/data?key=value#fragid1"])
+    
+def main():
+    test_parse()
+    
