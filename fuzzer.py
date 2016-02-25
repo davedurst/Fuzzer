@@ -37,13 +37,12 @@ def main():
         args = parser.parse_args()
 
         if args.cmd == 'discover':
-            print("Running discover")
-            print(args)
+            print("Running discover on base url: " + args.url + "\n")
             disc.discover(args)
 			
         elif args.cmd == 'test':
-            print("Running test")
-            print(args)
+            print("Running test on base url: " + args.url + "\n")
+            #this is part 2
 
 if __name__ == '__main__':
     main()
