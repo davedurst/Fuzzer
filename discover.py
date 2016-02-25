@@ -6,7 +6,7 @@
 
 import sys
 import utils.requests as requests
-from app import link_discovery, link_guessing, parse_url
+from app import link_discovery, link_guessing, parse_url, parse_form, cookies
 
 session = requests.Session()
 
@@ -42,8 +42,8 @@ def discover(args):
     print("\n*** Parsing URLS ***\n")
     parse_url.parse(final_urls)
 
-    print("*** Discovering Form Parameters ***")
+    print("\n*** Discovering Form Parameters ***\n")
+    parse_form.parse(final_urls, session)
 	
-    """ probably some api call """
-	
-    print("*** Discovering Cookies ***")
+    print("\n*** Discovering Cookies ***\n")
+    cookies.get_cookies(session)
