@@ -4,7 +4,7 @@
     Group 4
 """
 
-import packages.requests as requests
+from app.packages import requests
 
 common_endings = [".jsp", ".php"]
 
