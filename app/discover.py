@@ -37,7 +37,7 @@ def discover(args):
     
     print("\n*** Guessing Links ***\n")
     guessed_links = link_guessing.guess(discovered_links, session, args.common_words)
-    final_urls = discovered_links + guessed_links
+    final_urls = discovered_links.union(guessed_links)
 	
     print("\n*** Parsing URLS ***\n")
     parse_url.parse(final_urls)
