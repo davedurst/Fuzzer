@@ -4,7 +4,7 @@
     Group 4
 """
 
-import packages.bs4 as bSoup
+from app.packages.bs4 import BeautifulSoup
 
 def parse(urls, session):
     
@@ -12,7 +12,7 @@ def parse(urls, session):
         print("Parsing form inputs for url: " + url)
         
         req = session.get(url)
-        parse = bSoup(req.text)
+        parse = BeautifulSoup(req.text)
         forms = parse.findAll('form')
         
         if len(forms) == 0:
