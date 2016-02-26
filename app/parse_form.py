@@ -19,8 +19,7 @@ def parse(urls, session):
             print("No forms found on page")
         
         for form in forms:
-            print("Form name:   " + form["name"])
-            print("Form method: " + form["name"])
+            print("Form method: " + form["method"])
             
             for tag in form.recursiveChildGenerator():
                 if(tag.name == "input"):
