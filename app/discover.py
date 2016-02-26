@@ -5,7 +5,7 @@
 """
 
 import sys
-import utils.requests as requests
+import packages.requests as requests
 from app import link_discovery, link_guessing, parse_url, parse_form, cookies
 
 session = requests.Session()
