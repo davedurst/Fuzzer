@@ -7,7 +7,7 @@ Team 4: David Durst, Kris Brown, Kaicheng Guo
 Dependencies:
 ---------------------------------------------
 
-Python 3.2
+Python 3.4.3
 Beautiful Soup 4
 Python Requests Package
 
