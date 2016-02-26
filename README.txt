@@ -22,3 +22,5 @@ python fuzzer.py discover [url] --custon-auth=[dvwa, bwapp] --common-words=[file
 
 Example run:
 python fuzzer.py discover http://127.0.0.1/dvwa/ --custom-auth=dvwa --common-words=common-words.txt
+
+All output will be printed to sdtout
