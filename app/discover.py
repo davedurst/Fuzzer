@@ -33,19 +33,19 @@ def discover(args):
             sys.exit()
     
     print("\n*** Link Discovery ***\n")
-    #discovered_links = link_discovery.crawl(args.url, session)
+    discovered_links = link_discovery.crawl(args.url, session)
     
     print("\n*** Guessing Links ***\n")
-    #guessed_links = link_guessing.guess(discovered_links, session, args.common_words)
-    #final_urls = discovered_links + guessed_links
+    guessed_links = link_guessing.guess(discovered_links, session, args.common_words)
+    final_urls = discovered_links + guessed_links
 	
     print("\n*** Parsing URLS ***\n")
-    #parse_url.parse(final_urls)
-    parse_url.parse(["https://mycourses.rit.edu/"])
+    parse_url.parse(final_urls)
+    #parse_url.parse(["https://mycourses.rit.edu/"])
     
     print("\n*** Discovering Form Parameters ***\n")
-    #parse_form.parse(final_urls, session)
-    parse_form.parse(["https://mycourses.rit.edu/"], session)
+    parse_form.parse(final_urls, session)
+    #parse_form.parse(["https://mycourses.rit.edu/"], session)
 	
     print("\n*** Discovering Cookies ***\n")
     cookies.get_cookies(session)
