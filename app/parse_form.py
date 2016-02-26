@@ -4,7 +4,7 @@
     Group 4
 """
 
-import utils.bs4 as bSoup
+import packages.bs4 as bSoup
 
 def parse(urls, session):
     
