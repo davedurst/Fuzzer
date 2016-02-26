@@ -4,10 +4,10 @@ Team 4: David Durst, Kris Brown, Kaicheng Guo
 ---------------------------------------------
 
 ---------------------------------------------
-Stack:
+Dependencies:
 ---------------------------------------------
 
-Python 3.2 or newer
+Python 3.2
 Beautiful Soup 4
 Python Requests Package
 
@@ -22,4 +22,3 @@ python fuzzer.py discover [url] --custon-auth=[dvwa, bwapp] --common-words=[file
 
 Example run:
 python fuzzer.py discover http://127.0.0.1/dvwa/ --custom-auth=dvwa --common-words=common-words.txt
-
