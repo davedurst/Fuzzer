@@ -41,11 +41,9 @@ def discover(args):
 	
     print("\n*** Parsing URLS ***\n")
     parse_url.parse(final_urls)
-    #parse_url.parse(["https://mycourses.rit.edu/"])
     
     print("\n*** Discovering Form Parameters ***\n")
     parse_form.parse(final_urls, session)
-    #parse_form.parse(["https://mycourses.rit.edu/"], session)
 	
     print("\n*** Discovering Cookies ***\n")
     cookies.get_cookies(session)
