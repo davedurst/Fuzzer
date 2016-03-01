@@ -23,8 +23,9 @@ def parse(urls, session):
             
             for tag in form.recursiveChildGenerator():
                 if(tag.name == "input"):
-                    if("name" in tag.attrs and "value" in tag.attrs):
+                    if("name" in tag.attrs):
                         print("Input tag name: " + tag["name"])
+                    if("value" in tag.attrs):
                         print("Input tag value: " + tag["value"])
 
 def main():
