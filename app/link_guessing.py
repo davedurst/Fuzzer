@@ -6,14 +6,16 @@
 
 from app.packages import requests
 
-common_endings = [".jsp", ".php"]
-
 def valid_page(url_guess, session):
     request = session.get(url_guess)
     return (request.status_code == requests.codes.ok)
 
 def guess(discovered_links, session, common_words):
     guessed_links = set()
+
+    """ Read endings into list """
+    f = open("common-endings.txt", 'r')
+    endings = f.read().split()
 
     """ Read words into list """
     f = open(common_words, 'r')
@@ -27,7 +29,7 @@ def guess(discovered_links, session, common_words):
         
             """ for every word/ending combination """
             for word in words:
-                for ending in common_endings:
+                for ending in endings:
                     guess = link + word + ending
 
                     """ if its a page, add it to guessed links list """
