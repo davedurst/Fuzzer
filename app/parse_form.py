@@ -8,12 +8,15 @@ from app.packages.bs4 import BeautifulSoup
 
 def parse(urls, session):
     
+    """ form dictionary """
+    forms = {}
+    
     for url in urls:
         print("Parsing form inputs for url: " + url)
         
         req = session.get(url)
         parse = BeautifulSoup(req.text)
-        forms = parse.findAll('form')
+        forms[url] = parse.findAll('form')
         
         if len(forms) == 0:
             print("No forms found on page")
@@ -27,6 +30,9 @@ def parse(urls, session):
                         print("Input tag name: " + tag["name"])
                     if("value" in tag.attrs):
                         print("Input tag value: " + tag["value"])
+                        
+""" return our forms dictionary (url -> form(s) """
+return forms
 
 def main():
     parse(["https://mycourses.rit.edu/"])
