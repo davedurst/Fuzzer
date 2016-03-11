@@ -31,8 +31,8 @@ def parse(urls, session):
                     if("value" in tag.attrs):
                         print("Input tag value: " + tag["value"])
                         
-""" return our forms dictionary (url -> form(s) """
-return forms
+    """ return our forms dictionary (url -> form(s) """
+    return forms
 
 def main():
     parse(["https://mycourses.rit.edu/"])
