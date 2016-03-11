@@ -7,6 +7,7 @@
 import argparse
 import sys
 import app.discover as disc
+import app.test as test
 
 # This is the entry point for the application
 
@@ -41,8 +42,9 @@ def main():
             disc.discover(args)
 			
         elif args.cmd == 'test':
-            print("Running test on base url: " + args.url + "\n")
-            #this is part 2
+            print("Running discover and test on base url: " + args.url + "\n")
+            param_dict, form_dict = disc.discover(args)
+            test.test(param_dict, form_dict, args)
 
 if __name__ == '__main__':
     main()
