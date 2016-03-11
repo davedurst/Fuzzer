@@ -40,10 +40,13 @@ def discover(args):
     final_urls = discovered_links.union(guessed_links)
 	
     print("\n*** Parsing URLS ***\n")
-    parse_url.parse(final_urls)
+    param_dict = parse_url.parse(final_urls)
     
     print("\n*** Discovering Form Parameters ***\n")
-    parse_form.parse(final_urls, session)
+    form_dict = parse_form.parse(final_urls, session)
 	
     print("\n*** Discovering Cookies ***\n")
     cookies.get_cookies(session)
+
+    """ return tuple of param and form dictionaries """
+    return param_dict, form_dict
