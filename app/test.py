@@ -66,9 +66,9 @@ def test_forms(form_dict, vectors, session, rand, timeout, sensitive_words):
         # for each form
         for form in forms:
             form_method = str(form['method']).lower()
-            inputs = form.findAll('input')
             
             for vector in vectors:
+                inputs = form.findAll('input')
                 print("Testing Vector: " + vector.__str__())
                 
                 #dict of inputs -> vectors
@@ -83,10 +83,10 @@ def test_forms(form_dict, vectors, session, rand, timeout, sensitive_words):
                     if name.lower().strip() == 'submit':
                         request_params[name] = "Submit"
                     else:
-                        request_params[name] = vector
+                        request_params[name] = vector.rstrip()
                 
                 if form_method == "post":
-                    post_response = session.post(url, params=request_params)
+                    post_response = session.post(url, request_params)
                     
                     analyze_response_time(post_response, timeout)
                     analyze_status_code(post_response)
