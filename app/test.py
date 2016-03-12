@@ -35,12 +35,27 @@ def analyze_status_code(response):
     if response.status_code != 200:
         print("Unexpected return code: " + get_status_code(response.status_code))
 
-def analyze_sensitive_data(response):
-    return
+#Detects if sensitive data may have been leaked on a page
+def analyze_sensitive_data(response, sensitive_words):
+    for sensitive_word in sensitive_words:
+        if sensitive_word in response.text:
+            print("Response contained the following sensitive word: " + sensitive_word)
 
+#Detects if vector was sanitized properly (only testing basic XSS attack)
 def analyze_sanitization(response, vector):
-    return
+    if '<' in vector and '>' in vector:
+        if vector in response.text:
+            print("The following vector wasn't sanititzed correctly: " + vector)
+            print("This page may be vulnerable to cross site scripting")
 
+def test_forms(form_dict, vectors, session, rand, timeout):
+    #attack all inputs with vectors
+    return
+  
+def test_url_param(param_dict, vectors, session, rand, timeout):
+    #attack all url params with vectors
+    return
+   
 def test(param_dict, form_dict, args):
     # access the global session
     global sess
@@ -50,11 +65,3 @@ def test(param_dict, form_dict, args):
     test_forms(form_dict, vectors, sess, args.random, args.timeout)
     # attack url params
     test_url_param(param_dict, vectors, sess, args.random, args.timeout)
-
-def test_forms(form_dict, vectors, session, rand, timeout):
-    #attack all inputs with vectors
-    return
-  
-def test_url_param(param_dict, vectors, session, rand, timeout):
-    #attack all url params with vectors
-   return
