@@ -100,11 +100,31 @@ def test_forms(form_dict, vectors, session, rand, timeout, sensitive_words):
                     analyze_status_code(post_response)
                     analyze_sensitive_data(post_response, sensitive_words)
                     analyze_sanitization(post_response, vector)
-  
+ 
+#attack all url params with vectors
 def test_url_param(param_dict, vectors, session, rand, timeout, sensitive_words):
-    #attack all url params with vectors
-    return
-   
+    
+    key_list = list(form_dict.keys())
+    
+    # if we want a random attack
+    if rand:
+        random.shuffle(key_list)
+    
+    # for each url & corresponding param dict
+    for url in key_list:
+        curr_param_d = param_dict[url]
+        parameters = curr_param_d.keys() #ignore values
+        request_param_d = {}
+        
+        for vector in vectors:
+            for param in parameters:
+                request_param_d[param] = vector
+                response = session.get(url, params=request_param_d)
+                analyze_response_time(post_response, timeout)
+                analyze_status_code(post_response)
+                analyze_sensitive_data(post_response, sensitive_words)
+                analyze_sanitization(post_response, vector)
+                
 def test(param_dict, form_dict, args, session):
     # read vectors
     vectors = open(args.vectors).readlines()
