@@ -49,4 +49,4 @@ def discover(args):
     cookies.get_cookies(session)
 
     """ return tuple of param and form dictionaries """
-    return param_dict, form_dict
+    return param_dict, form_dict, session
