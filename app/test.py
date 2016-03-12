@@ -94,7 +94,7 @@ def test_forms(form_dict, vectors, session, rand, timeout, sensitive_words):
                     analyze_sanitization(post_response, vector)
                     
                 elif form_method == "get":
-                    get_response = session.get(url, params=post_params)
+                    get_response = session.get(url, params=request_params)
                     
                     analyze_response_time(post_response, timeout)
                     analyze_status_code(post_response)
