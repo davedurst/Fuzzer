@@ -61,7 +61,7 @@ def test(param_dict, form_dict, args, session):
     vectors = open(args.vectors).readlines()
     
     print("\n*** Testing Vectors Against Forms ***\n")
-    test_forms(form_dict, vectors, session, args.random, args.timeout)
+    test_forms(form_dict, vectors, session, args.random, args.slow)
     
     print("\n*** Testing Vectors Against URL Parameters ***\n")
-    test_url_param(param_dict, vectors, session, args.random, args.timeout)
+    test_url_param(param_dict, vectors, session, args.random, args.slow)
