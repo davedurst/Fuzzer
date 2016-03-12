@@ -37,7 +37,7 @@ def crawl(url, session):
 
                 if curr_link not in discovered_links:
                     #should make this check base url but for this example
-                    if "127.0.0.1" in curr_link:
+                    if "127.0.0.1" in curr_link and "logout" not in curr_link:
                         url_stack.add(curr_link)
                         discovered_links.add(curr_link)
                         print("Discovered: " + curr_link)
