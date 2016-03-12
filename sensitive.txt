@@ -1,1 +1,7 @@
-
+integer
+float
+string
+MySQL
+mysql
+syntax
+Apache
