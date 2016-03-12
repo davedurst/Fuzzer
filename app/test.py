@@ -29,7 +29,7 @@ def get_status_code(code):
 def analyze_response_time(response, timeout):
     load_time = response.elapsed.total_seconds() * 1000
     if load_time > timeout:
-        print("Response took " + load_time + " ms.")
+        print("Response took " + load_time.__str__() + " ms.")
         print("Potential Denial Of Service Vulnerability")
             
 # Detects unusual response codes and reports them
