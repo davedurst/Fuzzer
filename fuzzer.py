@@ -43,8 +43,8 @@ def main():
 			
         elif args.cmd == 'test':
             print("Running discover and test on base url: " + args.url + "\n")
-            param_dict, form_dict = disc.discover(args)
-            test.test(param_dict, form_dict, args)
+            param_dict, form_dict, session = disc.discover(args)
+            test.test(param_dict, form_dict, args, session)
 
 if __name__ == '__main__':
     main()
