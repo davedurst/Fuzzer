@@ -104,7 +104,7 @@ def test_forms(form_dict, vectors, session, rand, timeout, sensitive_words):
 #attack all url params with vectors
 def test_url_param(param_dict, vectors, session, rand, timeout, sensitive_words):
     
-    key_list = list(form_dict.keys())
+    key_list = list(param_dict.keys())
     
     # if we want a random attack
     if rand:
