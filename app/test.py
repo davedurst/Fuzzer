@@ -86,7 +86,7 @@ def test_forms(form_dict, vectors, session, rand, timeout, sensitive_words):
                         request_params[name] = vector.rstrip()
                 
                 if form_method == "post":
-                    post_response = session.post(url, request_params)
+                    post_response = session.post(url, data=request_params)
                     
                     analyze_response_time(post_response, timeout)
                     analyze_status_code(post_response)
@@ -94,7 +94,7 @@ def test_forms(form_dict, vectors, session, rand, timeout, sensitive_words):
                     analyze_sanitization(post_response, vector)
                     
                 elif form_method == "get":
-                    get_response = session.get(url, params=request_params)
+                    get_response = session.get(url, data=request_params)
                     
                     analyze_response_time(post_response, timeout)
                     analyze_status_code(post_response)
