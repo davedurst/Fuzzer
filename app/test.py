@@ -74,11 +74,11 @@ def test_forms(form_dict, vectors, session, rand, timeout, sensitive_words):
                 #dict of inputs -> vectors
                 request_params = {}
                 
-                for _input in inputs:
-                    if 'name' in _input.attrs:
-                        name = _input['name']
-                    elif 'type' in _input.attrs:
-                        name = _input['type']
+                for input in inputs:
+                    if 'name' in input.attrs:
+                        name = input['name']
+                    elif 'type' in input.attrs:
+                        name = input['type']
                         
                     if name.lower().strip() == 'submit':
                         request_params[name] = "Submit"
