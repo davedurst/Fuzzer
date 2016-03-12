@@ -56,9 +56,7 @@ def test_url_param(param_dict, vectors, session, rand, timeout):
     #attack all url params with vectors
     return
    
-def test(param_dict, form_dict, args):
-    # access the global session
-    global session
+def test(param_dict, form_dict, args, session):
     # read vectors
     vectors = open(args.vectors).readlines()
     
