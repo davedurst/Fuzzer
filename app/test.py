@@ -29,13 +29,11 @@ def get_status_code(code):
 def analyze_response_time(response, timeout):
     load_time = response.elapsed.total_seconds() * 1000
     if load_time > timeout:
-        print("Response took " + load_time.__str__() + " ms.")
-        print("Potential Denial Of Service Vulnerability")
+        print("Response took " + load_time.__str__() + " ms; Potential Denial Of Service Vulnerability")
             
 # Detects unusual response codes and reports them
 def analyze_status_code(response):
-    if response.status_code != 200:
-        print("Unexpected return code: " + get_status_code(response.status_code))
+    print("Return code: " + get_status_code(response.status_code))
 
 # Detects if sensitive data may have been leaked on a page
 def analyze_sensitive_data(response, sensitive_words):
@@ -112,6 +110,7 @@ def test_url_param(param_dict, vectors, session, rand, timeout, sensitive_words)
     
     # for each url & corresponding param dict
     for url in key_list:
+        print("Testing url parameters on: " + url)
         curr_param_d = param_dict[url]
         parameters = curr_param_d.keys() #ignore values
         request_param_d = {}
