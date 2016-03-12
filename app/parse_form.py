@@ -18,7 +18,7 @@ def parse(urls, session):
         parse = BeautifulSoup(req.text)
         forms[url] = parse.findAll('form')
         
-        if len(forms) == 0:
+        if len(forms[url]) == 0:
             print("No forms found on page")
         
         for form in forms[url]:
