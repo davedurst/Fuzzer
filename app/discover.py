@@ -8,12 +8,10 @@ import sys
 from app.packages import requests
 from app import link_discovery, link_guessing, parse_url, parse_form, cookies
 
-session = requests.Session()
-
 def discover(args):
 	
-    """ Global session to store history of our discovery """
-    global session	
+    """ Session to store history of our discovery """
+    session = requests.Session()	
 	
     """ Set up custom_auth """
     if args.custom_auth != None:
