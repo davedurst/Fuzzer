@@ -69,6 +69,8 @@ def test_forms(form_dict, vectors, session, rand, timeout, sensitive_words):
             inputs = form.findAll('input')
             
             for vector in vectors:
+                print("Testing Vector: " + vector.__str__())
+                
                 #dict of inputs -> vectors
                 request_params = {}
                 
@@ -98,6 +100,7 @@ def test_forms(form_dict, vectors, session, rand, timeout, sensitive_words):
                     analyze_status_code(post_response)
                     analyze_sensitive_data(post_response, sensitive_words)
                     analyze_sanitization(post_response, vector)
+        print("")
  
 #attack all url params with vectors
 def test_url_param(param_dict, vectors, session, rand, timeout, sensitive_words):
