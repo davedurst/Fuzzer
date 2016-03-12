@@ -132,7 +132,7 @@ def test(param_dict, form_dict, args, session):
     # read vectors
     vectors = open(args.vectors).readlines()
     
-    f = open(args.sensitive).readlines()
+    f = open(args.sensitive, 'r')
     sensitive_words = f.read().split()
     
     print("\n*** Testing Vectors Against Forms ***\n")
