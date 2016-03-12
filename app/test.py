@@ -60,7 +60,7 @@ def test_forms(form_dict, vectors, session, rand, timeout, sensitive_words):
     # for each url & corresponding form list
     for url in key_list:
         
-        print("Testing forms on: " + url)
+        print("Testing forms on: " + url + "\n")
         forms = form_dict[url]
         
         # for each form
@@ -100,6 +100,7 @@ def test_forms(form_dict, vectors, session, rand, timeout, sensitive_words):
                     analyze_status_code(post_response)
                     analyze_sensitive_data(post_response, sensitive_words)
                     analyze_sanitization(post_response, vector)
+                print("")
         print("")
  
 #attack all url params with vectors
