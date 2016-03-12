@@ -27,10 +27,10 @@ def main():
     """ Test options """
     test_parser = subparsers.add_parser('test', parents=[parent_parser])
     test_parser.add_argument('--common-words', nargs='?', type=str, required=True)
-    test_parser.add_argument('--vectors', nargs='?', type=str, required=False)
-    test_parser.add_argument('--sensitive', nargs='?', type=str, required=False)
-    test_parser.add_argument('--random', action='store_true', default=False)
-    test_parser.add_argument('--slow', nargs='?', type=int, default=500)
+    test_parser.add_argument('--vectors', nargs='?', type=str, required=True)
+    test_parser.add_argument('--sensitive', nargs='?', type=str, required=True)
+    test_parser.add_argument('--random', action='store_true', default=False, required=False)
+    test_parser.add_argument('--slow', nargs='?', type=int, default=500, required=False)
     
     if len(sys.argv) == 1:
         parser.print_help()
