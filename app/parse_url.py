@@ -18,7 +18,7 @@ def parse(urls):
    
 def parse_url(url):
     url_params = dict()
-    sub_divide = curr_url.split('?')
+    sub_divide = url.split('?')
         
     """ if we have url parameters """
     if(len(sub_divide) > 1):
