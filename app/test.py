@@ -4,6 +4,38 @@
     Group 4
 """
 
+#Returns a string representing the response code (only common codes)
+def get_status_code(code):
+    if code == 200:
+        return "200 --> Successful (OK)"
+    if code == 303:
+        return "303 --> Redirection (See Other)"
+    if code == 400:
+        return "400 --> Client Error (Bad Request)"
+    if code == 401:
+        return "401 --> Client Error (Unauthorized)"
+    if code == 403:
+        return "403 --> Client Error (Forbidden)"
+    if code == 404:
+        return "404 --> Client Error (Not Found)"
+    if code >= 500:
+        return code.__str__() + " --> Server Error"
+    else:
+        return code.__str__() + " --> Unknown Code" 
+
+def analyze_response_time(response):
+
+#Detects unusual response codes and reports them
+def analyze_status_code(response):
+    if response.status_code != 200:
+        print("Unexpected return code: " + get_status_code(response.status_code))
+
+def analyze_sensitive_data(response):
+    return
+
+def analyze_sanitization(response, vector):
+    return
+
 def test(param_dict, form_dict, args):
   # access the global session
   global sess
