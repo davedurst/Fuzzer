@@ -131,7 +131,9 @@ def test_url_param(param_dict, vectors, session, rand, timeout, sensitive_words)
 def test(param_dict, form_dict, args, session):
     # read vectors
     vectors = open(args.vectors).readlines()
-    sensitive_words = open(args.sensitive).readlines()
+    
+    f = open(args.sensitive).readlines()
+    sensitive_words = f.read().split()
     
     print("\n*** Testing Vectors Against Forms ***\n")
     test_forms(form_dict, vectors, session, args.random, args.slow, sensitive_words)
