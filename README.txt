@@ -3,6 +3,9 @@ SWEN 331
 Team 4: David Durst, Kris Brown, Kaicheng Guo
 ---------------------------------------------
 
+Project Description
+http://www.se.rit.edu/~swen-331/projects/fuzzer/
+
 ---------------------------------------------
 Dependencies:
 ---------------------------------------------
